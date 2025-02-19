@@ -1,24 +1,32 @@
 {% block _dtc_styles_global_main_element_widget %}
-    <style type="text/css">
+    <style>
         {% if headerFooterBgColor %}
-            .topbar,
+            .page-header,
+            .page-header .btn:not(.btn--inverse, .btn--outlined-inverse, .search-widget__input-btn, .btn--plain),
             .page-footer
             {
                 background-color: {{ headerFooterBgColor }} !important;
             }
 
+            .page-header .btn:not(.search-widget__input-btn, .btn--plain),
             .copyright
             {
                 border-color: {{ headerFooterBgColor }} !important;
+            }
 
+            .page-header .btn--inverse
+            {
+                color: {{ headerFooterBgColor }} !important;
             }
         {% endif %}
 
         {% if headerFooterTextColor %}
-            .topbar,
-            .topbar a:not(.oro-toolbar__link),
-            .topbar .decorated,
-            .topbar-navigation__link,
+            .page-header,
+            .page-header .search-widget__input,
+            .page-header .search-widget__input::placeholder,
+            .page-header .btn:not(.btn--inverse, .btn--outlined-inverse),
+            .page-header a:not(.dropdown-item, .shopping-list-dropdown__link),
+            .page-header span.main-menu__text-label,
             .page-footer,
             .page-footer h3,
             .page-footer h6,
@@ -28,11 +36,22 @@
             {
                 color: {{ headerFooterTextColor }} !important;
             }
+
+            .page-header .btn--inverse
+            {
+                background-color: {{ headerFooterTextColor }} !important;
+            }
+
+            .page-header .btn--outlined-inverse,
+            .page-header .search-widget__input-btn,
+            .page-header .search-widget__input
+            {
+                border-color: {{ headerFooterTextColor }} !important;
+            }
         {% endif %}
 
         {% if tableHeaderBgColor %}
             .table thead th,
-            .shopping-list-line-items__header,
             .product-prices__table .product-prices__th,
             .checkout-order-summary__grid .checkout-order-summary__grid-th,
             .oro-grid-table thead th,
@@ -42,7 +61,6 @@
             }
 
             .table thead th,
-            .shopping-list-line-items__header,
             .oro-grid-table thead th
             {
                 border-color: {{ tableHeaderBgColor }} !important;
@@ -57,7 +75,6 @@
         {% if tableHeaderTextColor %}
             .table thead th,
             .table thead th .grid-header-cell__link,
-            .shopping-list-line-items__header-label,
             .product-prices__table .product-prices__th,
             .checkout-order-summary__grid .checkout-order-summary__grid-th,
             .oro-grid-table thead th,
@@ -70,13 +87,10 @@
 {% endblock %}
 
 {% block _dtc_styles_global_secondary_element_widget %}
-    <style type="text/css">
+    <style>
         {% if iconBgColor %}
-            .cart-widget__icon,
-            .shopping-list__item-indicator,
-            .quick-access__icon,
             .badge,
-            .checkout__title-icon,
+            .theme-icon,
             .checkout-navigation__icon--current,
             .checkout-navigation__icon--complete,
             .cart-list-empty__icon
@@ -94,16 +108,18 @@
         {% endif %}
 
         {% if iconContentColor %}
-            .cart-widget__icon,
-            .shopping-list__item-indicator,
-            .quick-access__icon,
             .badge,
-            .checkout__title-icon,
+            .theme-icon,
             .checkout-navigation__icon--current,
             .checkout-navigation__icon--complete,
             .cart-list-empty__icon
             {
                 color: {{ iconContentColor }} !important;
+            }
+
+            svg.theme-icon
+            {
+                fill: {{ iconContentColor }} !important;
             }
         {% endif %}
 
@@ -173,10 +189,9 @@
 {% endblock %}
 
 {% block _dtc_styles_global_menu_widget %}
-    <style type="text/css">
+    <style>
         {% if mainMenuBgColor %}
             .main-menu-outer,
-            .main-menu__sublist-container,
             .header-row__trigger,
             .page-sidebar .shopping-list
             {
@@ -190,6 +205,7 @@
         {% endif %}
 
         {% if mainMenuTextColor %}
+            .main-menu__text-label,
             .main-menu-outer a,
             .main-menu-outer p,
             .page-sidebar .shopping-list a
@@ -199,11 +215,9 @@
         {% endif %}
 
         {% if secondaryMenuBgColor %}
-            .main-menu__sublist-container,
             .header-row__wrapper,
             .shopping-list-dropdown__item,
-            .header-row__dropdown-footer button,
-            .page-sidebar .shopping-list__item
+            .header-row__dropdown-footer button
             {
                 border-color: {{ secondaryMenuBgColor }} !important;
             }
@@ -217,9 +231,7 @@
             .shopping-list-widget .nav-trigger:hover,
             .shopping-list-widget .main-menu__item,
             .header-row__dropdown-footer button,
-            .primary-menu-container,
-            .page-sidebar .shopping-list__item--current,
-            .page-sidebar .shopping-list__item:hover
+            .primary-menu-container
             {
                 background-color: {{ secondaryMenuBgColor }} !important;
             }
@@ -236,11 +248,8 @@
             .shopping-list-widget .nav-trigger:hover,
             .shopping-list-widget .main-menu__item,
             .header-row__dropdown-footer button,
-            .shopping-list-widget__create-btn :before,
             .primary-menu-container h2,
-            .primary-menu-container a,
-            .page-sidebar .shopping-list__item--current a,
-            .page-sidebar .shopping-list__item:hover a
+            .primary-menu-container a
             {
                 color: {{ secondaryMenuTextColor }} !important;
             }
@@ -249,22 +258,23 @@
 {% endblock %}
 
 {% block _dtc_styles_global_button_widget %}
-    <style type="text/css">
+    <style>
         {% if mainButtonBgColor %}
-            .btn.btn--info,
+            .btn:not(.btn--text, .btn--flat, .btn--plain, .btn--outlined, .btn--outlined-inverse, .btn--inverse, .btn--destructive-outlined, .btn--neutral-dark, .btn--destructive),
             .promo-slider__info a[href]
             {
                 background-color: {{ mainButtonBgColor }} !important;
             }
 
-            .btn.btn--info,
+            .btn:not(.btn--text, .btn--flat, .btn--plain, .btn--inverse, .btn--outlined-inverse, .btn--destructive-outlined, .btn--neutral-dark, .btn--destructive),
             .promo-slider__info a[href]
             {
                 border-color: {{ mainButtonBgColor }} !important;
             }
 
             label.required em,
-            .checkout-form__req-text,
+            .btn--outlined:not(.btn--destructive-outlined, .btn--neutral-dark),
+            .btn--inverse:not(.btn--destructive-outlined, .btn--neutral-dark),
             .required-label
             {
                 color: {{ mainButtonBgColor }} !important;
@@ -272,54 +282,75 @@
         {% endif %}
 
         {% if mainButtonTextColor %}
-            .btn.btn--info,
+            .btn--inverse:not(.btn--destructive-outlined, .btn--neutral-dark)
+            {
+                background-color: {{ mainButtonTextColor }} !important;
+            }
+
+            .btn:not(.btn--outlined, .btn--inverse, .btn--destructive-outlined, .btn--neutral-dark, .btn--destructive, .btn--flat, .btn--plain),
             .promo-slider__info a[href]
             {
                 color: {{ mainButtonTextColor }} !important;
             }
 
-            .btn-group .btn.btn--info:hover:not(.dropdown-toggle)
+            .btn:not(.btn--text, .btn--flat, .btn--plain).btn--outlined-inverse,
+            .btn:not(.btn--text, .btn--flat, .btn--plain).btn--inverse
             {
-                border-right-color: {{ mainButtonTextColor }} !important;
+                border-color: {{ mainButtonTextColor }} !important;
             }
 
-            .btn-group .btn.btn--info.dropdown-toggle
+            .btn-group .btn:not(.btn--outlined, .btn--text, .btn--flat, .btn--plain).dropdown-toggle
             {
                 border-left-color: {{ mainButtonTextColor }} !important;
             }
         {% endif %}
 
         {% if secondaryButtonBgColor %}
-            .btn:not(.btn--info):not(.btn--link):not(.btn--default):not(.btn--plain)
+            .btn--text:not(.btn--outlined, .btn--outlined-inverse, .btn--inverse, .btn--destructive-outlined, .btn--neutral-dark, .btn--destructive, .btn--flat, .btn--plain)
             {
                 background-color: {{ secondaryButtonBgColor }} !important;
             }
 
-            .btn:not(.btn--info):not(.btn--link):not(.btn--default):not(.btn--plain)
+            .btn--text:not(.btn--no-padding, .btn--outlined-inverse, .btn--inverse, .btn--destructive-outlined, .btn--neutral-dark, .btn--destructive, .input-quantity-btn, .product-price-hint-btn, .prices-hint-toggler, .dropdown-toggle, .action, .product-tier-prices, .btn--flat, .btn--plain),
+            .product-item__qty-input
             {
                 border-color: {{ secondaryButtonBgColor }} !important;
+            }
+
+            .btn--text.btn--outlined:not(.btn--destructive-outlined, .btn--neutral-dark),
+            .btn--text.btn--inverse:not(.btn--destructive-outlined, .btn--neutral-dark)
+            {
+                color: {{ secondaryButtonBgColor }} !important;
             }
         {% endif %}
 
         {% if secondaryButtonTextColor %}
-            .btn:not(.btn--info):not(.btn--link):not(.btn--default):not(.btn--plain)
+            .btn--text.btn--inverse:not(.btn--destructive-outlined, .btn--neutral-dark, .btn--flat, .btn--plain)
+            {
+                background-color: {{ secondaryButtonTextColor }} !important;
+            }
+
+            .btn--text:not(.btn--outlined, .btn--inverse, .btn--destructive-outlined, .btn--neutral-dark)
             {
                 color: {{ secondaryButtonTextColor }} !important;
             }
+
+            .btn--text.btn--outlined-inverse:not(.btn--destructive-outlined, .btn--neutral-dark, .btn--destructive, .btn--flat, .btn--plain),
+            .btn--text.btn--inverse:not(.btn--destructive-outlined, .btn--neutral-dark, .btn--destructive, .btn--flat, .btn--plain)
+            {
+                border-color: {{ secondaryButtonTextColor }} !important;
+            }
         {% endif %}
+
+            .btn:not(.btn--destructive-outlined, .btn--neutral-dark, .btn--destructive):disabled
+            {
+                filter: opacity(75%);
+            }
     </style>
 {% endblock %}
 
 {% block _dtc_styles_global_additional_widget %}
-    {% if externalStylesheets %}
-        {% for stylesheet in externalStylesheets %}
-            {% if stylesheet.url %}
-                <link rel="stylesheet" href="{{ stylesheet.url|striptags }}" />
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-
-    <style type="text/css">
+    <style>
         {% set supportedFontFamilies = {
             'georgia'         : 'Georgia, serif',
             'palatino'        : '"Palatino Linotype", "Book Antiqua", Palatino, serif',
@@ -372,7 +403,7 @@
 
 {% block _dtc_styles_global_custom_css_widget %}
     {% if customCssGlobal %}
-        <style type="text/css">
+        <style>
             {{ customCssGlobal|striptags|raw }}
         </style>
     {% endif %}

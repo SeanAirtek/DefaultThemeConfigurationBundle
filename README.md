@@ -15,7 +15,6 @@ The bundle is compatible both with the Community Edition and Enterprise Edition 
     * [Button Colors](#button-colors)
     * [Additional Styling](#additional-styling)
     * [CSS Styling](#css-styling)
-    * [Email Templates](#email-templates)
 * [How To Thank The Author](#how-to-thank-the-author)
 
 
@@ -151,17 +150,6 @@ add custom CSS styles to appropriate pages, these styles put after the global st
 may override it
 
 ![CSS Styling Example](Resources/doc/img/css-styling-example.png)
-
-
-### Email Templates
-
-![CSS Styling](Resources/doc/img/email-template.png)
-
-**Enable Email Template Wrapper** enables custom email template wrapper for all standard emails
-
-**Email Template Wrapper** contains HTML content of the email wrapper. Please do not forget to verify that all links are static
-
-![CSS Styling Example](Resources/doc/img/email-template-example.png)
 
 
 ## How To Thank The Author

@@ -55,4 +55,20 @@ class DefaultThemeConfigurationProvider
             return $this->attachmentManager->getFilteredImageUrl($image, 'dtc_favicon');
         }
     }
+
+    public function getSmallCompanyLogo(): ?string
+    {
+        $id = $this->configManager->get('ystools_dtc.small_company_logo');
+        if (!$id) {
+            return null;
+        }
+
+        /** @var File $image */
+        $image = $this->doctrineHelper->getEntity(File::class, $id);
+        if (!$image) {
+            return null;
+        }
+
+        return $this->attachmentManager->getFilteredImageUrl($image, 'dtc_small_company_logo');
+    }
 }

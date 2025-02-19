@@ -53,7 +53,6 @@ layout:
               blockType: block
               options:
                   vars:
-                      externalStylesheets:      '=data["system_config_provider"].getValue("ystools_dtc.external_stylesheets")'
                       fontFamily:               '=data["system_config_provider"].getValue("ystools_dtc.font_family")'
                       customFontFamily:         '=data["system_config_provider"].getValue("ystools_dtc.custom_font_family")'
         - '@add':

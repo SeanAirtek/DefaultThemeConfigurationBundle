@@ -14,11 +14,6 @@ services:
             - '@oro_entity.doctrine_helper'
             - '@validator'
 
-    ystools_dtc.form_type.stylesheet:
-        class: 'YsTools\Bundle\DefaultThemeConfigurationBundle\Form\Type\StylesheetType'
-        tags:
-            - { name: form.type, alias: ystools_stylesheet }
-
     ystools_dtc.data_provider.default_theme_configuration:
         class: 'YsTools\Bundle\DefaultThemeConfigurationBundle\Layout\DataProvider\DefaultThemeConfigurationProvider'
         arguments:
@@ -27,15 +22,3 @@ services:
             - '@oro_attachment.manager'
         tags:
             - { name: layout.data_provider, alias: dtc }
-
-    ystools_dtc.email.email_rendered_decorator:
-        class: 'YsTools\Bundle\DefaultThemeConfigurationBundle\Email\EmailRendererDecorator'
-        decorates: oro_email.email_renderer
-        arguments:
-            - '@.inner'
-            - '@oro_config.global'
-            -
-    ystools_dtc.form.extension.email_template_rich_text:
-        class: 'YsTools\Bundle\DefaultThemeConfigurationBundle\Form\Extension\EmailTemplateRichTextTypeExtension'
-        tags:
-            - { name: form.type_extension, extended_type: Oro\Bundle\EmailBundle\Form\Type\EmailTemplateRichTextType }

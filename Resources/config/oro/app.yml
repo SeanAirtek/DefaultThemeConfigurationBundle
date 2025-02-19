@@ -5,6 +5,11 @@ liip_imagine:
             filters:
                 relative_resize: { heighten: 50 }
                 strip:        ~
+        dtc_small_company_logo:
+            quality:          95
+            filters:
+                relative_resize: { heighten: 28 }
+                strip:        ~
         dtc_favicon:
             quality:          100
             filters:

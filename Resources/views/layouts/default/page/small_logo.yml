@@ -1,0 +1,7 @@
+layout:
+    actions:
+        - '@appendOption':
+              id: main_menu_trigger
+              optionName: vars
+              optionValue:
+                  logoSrc: '=data["dtc"].getSmallCompanyLogo()'
