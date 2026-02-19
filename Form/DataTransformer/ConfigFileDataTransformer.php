@@ -31,14 +31,14 @@ class ConfigFileDataTransformer extends BaseTransformer
     /**
      * {@inheritDoc}
      */
-    public function reverseTransform($file)
+    public function reverseTransform($file): ?int
     {
         if (null === $file) {
-            return '';
+            return null;
         }
 
         if ($file->isEmptyFile()) {
-            return '';
+            return null;
         }
 
         $em = $this->doctrineHelper->getEntityManagerForClass(File::class);
