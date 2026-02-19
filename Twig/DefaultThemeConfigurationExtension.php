@@ -65,7 +65,7 @@ class DefaultThemeConfigurationExtension extends AbstractExtension implements Se
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedServices()
+    public static function getSubscribedServices():array
     {
         return [
             'oro_config.manager' => ConfigManager::class,
